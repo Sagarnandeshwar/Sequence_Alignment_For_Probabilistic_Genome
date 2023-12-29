@@ -41,7 +41,7 @@ Let w be the word and g be the genome. let I bet set of all index positon of wor
 scorePhase1(w) = Σ𝑖∈𝐼matchScore(wi, gj),
 
 where, j is the corresponding position in genome g for index i in word w
-![]()
+![](https://github.com/Sagarnandeshwar/Sequence_Alignment_For_Probabilistic_Genome/blob/main/image/1.png)
 
 The score scheme is same for scorePhase2(w)
 
@@ -93,6 +93,7 @@ c = gap penalty; set it to -1
 
 M(i,j) = max{M(i-1,j-1) + matchScore(i, j), M(i-1,j) + c, M(i,j-1) + c}
 Remember:
+![](https://github.com/Sagarnandeshwar/Sequence_Alignment_For_Probabilistic_Genome/blob/main/image/2.png)
 
 **Traceback:**
 Since size of genome >> size of word I select the max value of the last column and start traceback from there. I simply follow back the arrows and retrieve the sequence. Also, the max value of the last column is also the NM algorithm score.
@@ -133,8 +134,12 @@ CCCGCAGCCCCTCACCTGAGTAGCCCGGCGGGCTCGGGATCCCCTCCTCAGGGTCCCGCGCCGCACGCTTCC-TCCTGCG
 To test the running time of algorithms, I ran the program multiple times with different sets of indels probability, substitution probability, word length, and query size. I found that the major reason for the latency in the algorithm is because of the high number of seeds in ungapped extension phase and the no. of time it run NW algorithm in gapped extension phase.
 The running time word length 11, query sequence size ~ 50, threshold1 = 3 and threshold2 = 5
 
+![](https://github.com/Sagarnandeshwar/Sequence_Alignment_For_Probabilistic_Genome/blob/main/image/3.png)
+
 ## Accuracy
 I ran the following test 10 times and defined the accuracy for the experiment as the percentage of finding the database, in top 5 high scoring words.
+
+![](https://github.com/Sagarnandeshwar/Sequence_Alignment_For_Probabilistic_Genome/blob/main/image/4.png)
 
 From the above graph we could see that the algorithm has a very high accuracy for short indels and mutations, and was able to identify alignments even with 25% mutation.
 
@@ -157,6 +162,7 @@ For the future work, I want to implement indexing, which could be used during th
 
 ## Reference
 [1] Stephen Altschul; Warren Gish; Webb Miller; Eugene Myers; David J. Lipman (1990). "Basic local alignment search tool"
+
 [2] Needleman, Saul B. & Wunsch, Christian D. (1970). "A general method applicable to the search for similarities in the amino acid sequence of two proteins". Journal of Molecular Biology.
 
 
